@@ -5,13 +5,15 @@ class NavLinkDropDown extends React.Component {
   render() {
     return (
       <NavLinkDropDownContainer>
-        <div className="ParentLink">
-          <span>Parent</span>
-        </div>
-        <div className="ChildrenContainer">
-          <span className="ChildLink">child 1</span>
-          <span className="ChildLink">child 2</span>
-          <span className="ChildLink">child 3</span>
+        <div className="ParentWrapper">
+          <div className="ParentLink">
+            <span>Parent</span>
+          </div>
+          <div className="ChildrenContainer">
+            <span className="ChildLink">child 1</span>
+            <span className="ChildLink">child 2</span>
+            <span className="ChildLink">child 3</span>
+          </div>
         </div>
       </NavLinkDropDownContainer>
     );
@@ -26,22 +28,31 @@ export default NavLinkDropDown;
 
 const NavLinkDropDownContainer = styled.div`
   width: 150px;
+  min-width: 150px;
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 
-  .ParentLink {
+  .ParentWrapper {
     width: 100%;
+    &:hover .ParentLink > span {
+      transform: scale(1.2);
+    }
+    &:hover .ChildrenContainer {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .ParentLink {
     background-color: #0095d9;
     color: #ffffff;
     height: 45px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-
-    &:hover {
-      background-color: #40c3ff;
-    }
+    padding-left: 10px;
   }
 
   .ChildrenContainer {
@@ -53,19 +64,15 @@ const NavLinkDropDownContainer = styled.div`
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     overflow: hidden;
+    z-index: 99 !important;
+    position: relative;
   }
 
   .ChildLink {
     padding: 10px;
-
     &:hover {
       background-color: #40c3ff;
       color: #ffffff;
     }
-  }
-
-  :hover .ChildrenContainer {
-    display: flex;
-    flex-direction: column;
   }
 `;
