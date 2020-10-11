@@ -36,6 +36,7 @@ const NavLinkDropDownContainer = styled.div`
 
   .ParentWrapper {
     width: 100%;
+    height: 100%;
     &:hover .ParentLink > span {
       transform: scale(1.2);
     }
