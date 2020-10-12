@@ -7,10 +7,10 @@ export default function App() {
   return (
     <StyledApp className="App">
       <StyledDiv>
-        <NavLinkDropDown 
-        title="No items" 
-        parentBGColor="#77008a"
-        parentHoverBGColor="#a619bd"
+        <NavLinkDropDown
+          title="No items"
+          parentBGColor="#77008a"
+          parentHoverBGColor="#a619bd"
         />
       </StyledDiv>
       <StyledDiv>
@@ -28,8 +28,12 @@ export default function App() {
       </StyledDiv>
       <StyledDiv>
         <NavLinkDropDown
-          title="Different Items"
-          childItems={["Link 4", "This is a longer link", "This is an even longer link text"]}
+          title="Default Theme"
+          childItems={[
+            "Link 4",
+            "This is a longer link",
+            "This is an even longer link text"
+          ]}
         />
       </StyledDiv>
     </StyledApp>
