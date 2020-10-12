@@ -28,12 +28,31 @@ export default function App() {
       </StyledDiv>
       <StyledDiv>
         <NavLinkDropDown
-          title="Default Theme"
+          title="RPG's"
           childItems={[
-            "Link 4",
-            "This is a longer link",
-            "This is an even longer link text"
+            "The Witcher 3: Wild Hunt",
+            "The Legend of Zelda: Breath of the Wild",
+            "The Elder Scrolls V: Skyrim"
           ]}
+          parentPaddingRight="20px"
+        />
+        <NavLinkDropDown
+          title="Strategy"
+          childItems={[
+            "Civilization V",
+            "Age of Empires",
+            "XCOM"
+          ]}
+          parentPaddingRight="20px"
+        />
+        <NavLinkDropDown
+          title="Classics"
+          childItems={[
+            "Pac-Man",
+            "Tetris",
+            "Space Invaders"
+          ]}
+          parentPaddingRight="20px"
         />
       </StyledDiv>
     </StyledApp>
@@ -50,4 +69,6 @@ const StyledApp = styled.div`
 
 const StyledDiv = styled.div`
   padding: 60px;
+  display: flex;
+  justify-content: space-between;
 `;

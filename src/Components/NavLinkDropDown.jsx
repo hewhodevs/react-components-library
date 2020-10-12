@@ -13,6 +13,7 @@ const NavLinkDropDownContainer = styled.div`
   --childHoverBGColor: ${props => props.childHoverBGColor || "#19b7ff"};
   --childTextColor: ${props => props.childTextColor || "#000000"};
   --childTextHoverColor: ${props => props.childTextHoverColor || "#ffffff"};
+  --parentPaddingRight: ${props => props.parentPaddingRight || "10px"};
 
   overflow: hidden;
   white-space: nowrap;
@@ -28,7 +29,8 @@ const NavLinkDropDownContainer = styled.div`
   .Parent {
     background-color: var(--parentBGColor);
     color: var(--parentTextColor);
-    padding: 10px 5px;
+    padding: 10px;
+    padding-right: var(--parentPaddingRight);
   }
   .Children {
     position: absolute;
@@ -72,6 +74,7 @@ export default class NavLinkDropDown extends React.Component {
       childHoverBGColor={this.props.childHoverBGColor}
       childTextColor={this.props.childTextColor}
       childTextHoverColor={this.props.childTextHoverColor}
+      parentPaddingRight={this.props.parentPaddingRight}
       >
         <div className="Parent">
           <span>{this.props.title ? this.props.title : "blank"}</span>
