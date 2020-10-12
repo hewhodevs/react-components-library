@@ -8,7 +8,6 @@ export default class NavBar extends React.Component {
       <NavBarContainer>
         <NavLinkDropDown />
         <NavLinkDropDown />
-        <NavLinkDropDown />
       </NavBarContainer>
     );
   }

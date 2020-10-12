@@ -5,15 +5,13 @@ class NavLinkDropDown extends React.Component {
   render() {
     return (
       <NavLinkDropDownContainer>
-        <div className="ParentWrapper">
-          <div className="ParentLink">
-            <span>Parent</span>
-          </div>
-          <div className="ChildrenContainer">
-            <span className="ChildLink">child 1</span>
-            <span className="ChildLink">child 2</span>
-            <span className="ChildLink">child 3</span>
-          </div>
+        <div className="Parent">
+          <span>Parent</span>
+        </div>
+        <div className="Children">
+          <span className="ChildLink">child 1 something something</span>
+          <span className="ChildLink">child 2</span>
+          <span className="ChildLink">child 3</span>
         </div>
       </NavLinkDropDownContainer>
     );
@@ -27,53 +25,28 @@ export default NavLinkDropDown;
 // --------------------------
 
 const NavLinkDropDownContainer = styled.div`
-  width: 150px;
-  min-width: 150px;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
+  --blue: #0095d9;
+  --lightblue: #40c3ff;
+  --white: #ffffff;
 
-  .ParentWrapper {
-    width: 100%;
-    height: 100%;
-    &:hover .ParentLink > span {
-      transform: scale(1.2);
-    }
-    &:hover .ChildrenContainer {
-      display: flex;
-      flex-direction: column;
-    }
-  }
+  overflow: hidden;
+  white-space: nowrap;
 
-  .ParentLink {
-    background-color: #0095d9;
-    color: #ffffff;
-    height: 45px;
+  &:hover .Children {
     display: flex;
-    justify-content: start;
-    align-items: center;
-    padding-left: 10px;
   }
 
-  .ChildrenContainer {
-    width: 200px;
+  .Parent {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+  .Children {
+    position: absolute;
     display: none;
-    box-sizing: border-box;
-    background-color: #ffffff;
-    box-shadow: 3px 3px 5px #888888;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    overflow: hidden;
-    z-index: 99 !important;
-    position: relative;
+    flex-direction: column;
+    border: 1px solid black;
   }
-
   .ChildLink {
-    padding: 10px;
-    &:hover {
-      background-color: #40c3ff;
-      color: #ffffff;
-    }
+    border: 1px solid blue;
   }
 `;
