@@ -1,52 +1,85 @@
 import React from "react";
 import styled from "styled-components";
 
-class NavLinkDropDown extends React.Component {
-  render() {
-    return (
-      <NavLinkDropDownContainer>
-        <div className="Parent">
-          <span>Parent</span>
-        </div>
-        <div className="Children">
-          <span className="ChildLink">child 1 something something</span>
-          <span className="ChildLink">child 2</span>
-          <span className="ChildLink">child 3</span>
-        </div>
-      </NavLinkDropDownContainer>
-    );
-  }
-}
-
-export default NavLinkDropDown;
-
 // --------------------------
 // Component Styles
 // --------------------------
 
 const NavLinkDropDownContainer = styled.div`
-  --blue: #0095d9;
-  --lightblue: #40c3ff;
-  --white: #ffffff;
+  --parentBGColor: ${props => props.parentBGColor || "#0095d9"};
+  --parentHoverBGColor: ${props => props.parentHoverBGColor || "#19b7ff"};
+  --parentTextColor: ${props => props.parentTextColor || "#ffffff"};
+  --childBGColor: ${props => props.childBGColor || "#ffffff"};
+  --childHoverBGColor: ${props => props.childHoverBGColor || "#19b7ff"};
+  --childTextColor: ${props => props.childTextColor || "#000000"};
+  --childTextHoverColor: ${props => props.childTextHoverColor || "#ffffff"};
 
   overflow: hidden;
   white-space: nowrap;
+  cursor: pointer;
 
   &:hover .Children {
     display: flex;
   }
+  &:hover .Parent {
+    background-color: var(--parentHoverBGColor);
+  }
 
   .Parent {
-    background-color: var(--blue);
-    color: var(--white);
+    background-color: var(--parentBGColor);
+    color: var(--parentTextColor);
+    padding: 10px 5px;
   }
   .Children {
     position: absolute;
     display: none;
     flex-direction: column;
-    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
   }
   .ChildLink {
-    border: 1px solid blue;
+    background-color: var(--childBGColor);
+    padding: 10px;
+
+    &:hover {
+      background-color: var(--childHoverBGColor);
+      color: var(--childTextHoverColor);
+    }
   }
 `;
+
+// --------------------------
+// React Component
+// --------------------------
+
+export default class NavLinkDropDown extends React.Component {
+  render() {
+    let childItems = <div></div>
+    if (this.props.childItems && this.props.childItems.length > 0) {
+      childItems = this.props.childItems.map( (childItem, index) => {
+        return (
+          <span key={index} className="ChildLink">{childItem}</span>
+        );
+      })
+    }
+    return (
+      <NavLinkDropDownContainer 
+      parentBGColor={this.props.parentBGColor}
+      parentHoverBGColor={this.props.parentHoverBGColor}
+      parentTextColor={this.props.parentTextColor}
+      childBGColor={this.props.childBGColor}
+      childHoverBGColor={this.props.childHoverBGColor}
+      childTextColor={this.props.childTextColor}
+      childTextHoverColor={this.props.childTextHoverColor}
+      >
+        <div className="Parent">
+          <span>{this.props.title ? this.props.title : "blank"}</span>
+        </div>
+        <div className="Children">
+          {childItems}
+        </div>
+      </NavLinkDropDownContainer>
+    );
+  }
+}
