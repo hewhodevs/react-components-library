@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import ThemeProvider from "styled-components";
 import NavLinkDropDown from "./NavLinkDropDown";
 
 export default class NavBar extends React.Component {
   render() {
     return (
       <NavBarContainer>
-        <NavLinkDropDown title="No items" color="#00804f"/>
+        <NavLinkDropDown title="No items" color="#00804f" />
         <NavLinkDropDown
           title="Some items"
           childItems={[
@@ -27,7 +26,5 @@ export default class NavBar extends React.Component {
 
 const NavBarContainer = styled.div`
   display: flex;
-  position: relative;
-  top: 40px;
-  left: 40px;
+  height: 45px;
 `;
