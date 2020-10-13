@@ -45,6 +45,7 @@ const NavLinkDropDownContainer = styled.div`
     flex-direction: column;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    box-shadow: 5px 5px 10px #d6d6d6;
     overflow: hidden;
   }
   .ChildLink {
