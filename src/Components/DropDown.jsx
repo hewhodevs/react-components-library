@@ -5,7 +5,7 @@ import styled from "styled-components";
 // Component Styles
 // --------------------------
 
-const NavLinkDropDownContainer = styled.div`
+const DropDownContainer = styled.div`
   --parentBGColor: ${(props) => props.parentBGColor || "#0095d9"};
   --parentHoverBGColor: ${(props) => props.parentHoverBGColor || "#19b7ff"};
   --parentTextColor: ${(props) => props.parentTextColor || "#ffffff"};
@@ -63,7 +63,7 @@ const NavLinkDropDownContainer = styled.div`
 // React Component
 // --------------------------
 
-export default class NavLinkDropDown extends React.Component {
+export default class DropDown extends React.Component {
   render() {
     let childItems = <div></div>;
     if (this.props.childItems && this.props.childItems.length > 0) {
@@ -76,7 +76,7 @@ export default class NavLinkDropDown extends React.Component {
       });
     }
     return (
-      <NavLinkDropDownContainer
+      <DropDownContainer
         parentBGColor={this.props.parentBGColor}
         parentHoverBGColor={this.props.parentHoverBGColor}
         parentTextColor={this.props.parentTextColor}
@@ -90,7 +90,7 @@ export default class NavLinkDropDown extends React.Component {
           <span>{this.props.title ? this.props.title : "blank"}</span>
         </div>
         <div className="Children">{childItems}</div>
-      </NavLinkDropDownContainer>
+      </DropDownContainer>
     );
   }
 }
