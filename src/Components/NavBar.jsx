@@ -85,6 +85,7 @@ const NAVTREE = {
 const NavBarContainer = styled.div`
   display: flex;
   height: 45px;
+  background-color: #0095d9;
 `;
 
 // ------------------------------------
